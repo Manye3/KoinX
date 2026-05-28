@@ -1,0 +1,353 @@
+.holdings-section {
+  margin-top: 8px;
+}
+
+.holdings-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+}
+
+/* ─── Table Wrapper ─── */
+.holdings-table-wrapper {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.holdings-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* ─── Header ─── */
+.holdings-table thead {
+  background: var(--card-bg-hover);
+}
+
+.holdings-table th {
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.holdings-table th:hover {
+  color: var(--text-primary);
+}
+
+.holdings-table th.col-checkbox {
+  width: 48px;
+  cursor: default;
+}
+
+.holdings-table th.col-asset {
+  width: 18%;
+}
+
+.holdings-table th.col-holdings {
+  width: 16%;
+}
+
+.holdings-table th.col-price {
+  width: 13%;
+  text-align: center;
+}
+
+.holdings-table th.col-stcg {
+  width: 15%;
+  text-align: center;
+}
+
+.holdings-table th.col-ltcg {
+  width: 13%;
+  text-align: center;
+}
+
+.holdings-table th.col-sell {
+  width: 15%;
+  text-align: right;
+  cursor: default;
+}
+
+.col-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ─── Sort Icon ─── */
+.sort-icon {
+  font-size: 12px;
+  margin-left: 4px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.sort-icon--active {
+  opacity: 1;
+  color: var(--accent-blue);
+}
+
+/* ─── Checkbox ─── */
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color-strong);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.checkbox-custom svg {
+  width: 12px;
+  height: 12px;
+}
+
+.checkbox-custom--checked {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 8px rgba(0, 130, 251, 0.3);
+}
+
+.checkbox-wrapper:hover .checkbox-custom:not(.checkbox-custom--checked) {
+  border-color: var(--accent-blue);
+}
+
+/* ─── Rows ─── */
+.holdings-row {
+  transition: background 0.2s ease;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.holdings-row:last-child {
+  border-bottom: none;
+}
+
+.holdings-row:hover {
+  background: var(--card-bg-hover);
+}
+
+.holdings-row--selected {
+  background: rgba(0, 130, 251, 0.06);
+}
+
+.holdings-row--selected:hover {
+  background: rgba(0, 130, 251, 0.1);
+}
+
+.holdings-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.holdings-table td.col-checkbox {
+  width: 48px;
+}
+
+/* ─── Asset Column ─── */
+.asset-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.asset-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--card-bg-hover);
+  flex-shrink: 0;
+}
+
+.asset-names {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.asset-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.asset-ticker {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ─── Cell Stacked ─── */
+.cell-stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.col-holdings .cell-stacked {
+  align-items: flex-start;
+}
+
+.cell-primary {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cell-secondary {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Price Column ─── */
+.col-price {
+  text-align: center;
+}
+
+.price-value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: help;
+  position: relative;
+}
+
+/* ─── Gain Colors ─── */
+.gain-positive {
+  color: var(--green) !important;
+}
+
+.gain-negative {
+  color: var(--red) !important;
+}
+
+/* ─── Sell Column ─── */
+.col-sell {
+  text-align: right;
+}
+
+.sell-amount {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  animation: fadeIn 0.25s ease;
+}
+
+.sell-dash {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ─── View All Button ─── */
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 14px;
+  margin-top: 2px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0 0 12px 12px;
+  color: var(--accent-blue);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  border-top: none;
+  margin-top: -1px;
+}
+
+.view-all-btn:hover {
+  background: var(--card-bg-hover);
+  color: var(--accent-blue-hover);
+}
+
+.view-all-chevron {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.view-all-chevron--up {
+  transform: rotate(180deg);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .holdings-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .holdings-table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 600px) {
+  .holdings-table th,
+  .holdings-table td {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .asset-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .asset-name {
+    font-size: 12px;
+    max-width: 100px;
+  }
+}

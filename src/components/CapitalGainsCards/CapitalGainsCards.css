@@ -1,0 +1,182 @@
+.capital-gains-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+/* ─── Base Card ─── */
+.gains-card {
+  border-radius: 12px;
+  padding: 24px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gains-card--pre {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.gains-card--after {
+  background: linear-gradient(135deg, #0052d4 0%, #0082fb 40%, #00b4fc 100%);
+  border: none;
+  box-shadow: 0 4px 24px rgba(0, 130, 251, 0.25);
+}
+
+/* ─── Title ─── */
+.gains-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: var(--text-primary);
+}
+
+.gains-card__title--after {
+  color: #ffffff;
+}
+
+/* ─── Table Layout ─── */
+.gains-card__table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.gains-card__header-row,
+.gains-card__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.gains-card__header-row {
+  padding-bottom: 12px;
+}
+
+.gains-card__col-header {
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.gains-card--after .gains-card__col-header {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.gains-card__label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.gains-card--after .gains-card__label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gains-card__value {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.gains-card--after .gains-card__value {
+  color: #ffffff;
+}
+
+.gains-card__row--net {
+  border-top: 1px solid var(--border-color);
+  margin-top: 4px;
+  padding-top: 12px;
+}
+
+.gains-card--after .gains-card__row--net {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Realised / Effective Gains ─── */
+.gains-card__realised {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.gains-card--after .gains-card__realised {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.gains-card__realised-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.gains-card--after .gains-card__realised-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gains-card__realised-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.gains-card--after .gains-card__realised-value {
+  color: #ffffff;
+}
+
+/* ─── Savings Message ─── */
+.gains-card__savings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  animation: savingsFadeIn 0.4s ease-out;
+}
+
+.gains-card__savings-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+@keyframes savingsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .capital-gains-container {
+    grid-template-columns: 1fr;
+  }
+
+  .gains-card {
+    padding: 20px;
+  }
+
+  .gains-card__realised-value {
+    font-size: 20px;
+  }
+}
